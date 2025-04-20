@@ -1,0 +1,79 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bare - TailwindCSS</title>
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="./public/img/favicon.png"
+      type="image/x-icon" />
+    <!-- Core theme TailwindCSS-->
+    <link rel="stylesheet" href="./public/css/output.css" />
+    <!-- Core theme CSS-->
+    <link rel="stylesheet" href="./public/css/styles.css" />
+  </head>
+
+  <body class="bg-secondary-color">
+    <!-- Navbar Wrapper with 100px padding on left and right -->
+    <div class="max-w-[1200px] mx-auto px-[100px]">
+      <nav
+        class="flex flex-col sm:flex-row flex-wrap md:items-center py-1 justify-between top-0 z-20 w-full bg-secondary-color">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <a href="#!" class="py-1 flex items-center">
+            <img
+              src="./public/img/minetra.png"
+              alt="minetra"
+              class="h-6 w-auto sm:h-8 md:h-10" />
+          </a>
+        </div>
+
+        <!-- Menu Links -->
+        <ul
+          class="hidden sm:flex text-gray-400 justify-end items-center gap-x-7 gap-y-5 tracking-wide mt-5 sm:mt-0"
+          id="links">
+          <li class="table-caption mb-5 sm:mb-0">
+            <a href="#home" class="active">HOME</a>
+          </li>
+          <li class="table-caption mb-5 sm:mb-0">
+            <a href="#services" class="hover:text-gray-300">SERVICES</a>
+          </li>
+          <li class="table-caption mb-5 sm:mb-0">
+            <a href="#about" class="hover:text-gray-300">ABOUT ME</a>
+          </li>
+          <li class="table-caption mb-5 sm:mb-0">
+            <a href="#portfolio" class="hover:text-gray-300">PORTFOLIO</a>
+          </li>
+          <li class="table-caption mb-5 sm:mb-0">
+            <a href="#blog" class="hover:text-gray-300">BLOG</a>
+          </li>
+          <li class="table-caption mb-5 sm:mb-0">
+            <a href="#contact" class="hover:text-gray-300">CONTACT</a>
+          </li>
+
+          <!-- Hire Me Button -->
+          <li class="mb-5 sm:mb-0">
+            <button
+              class="bg-secondary-color border border-gray-400 px-4 py-1 rounded-md text-white hover:bg-white hover:text-secondary-color transition-all duration-200"
+              id="hire-me">
+              HIRE ME
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main content container with same layout rules -->
+    <main class="max-w-[1200px] mx-auto px-[100px]"></main>
+
+    <!-- Core Navbar JS-->
+    <script src="./public/js/navbar.js"></script>
+    <!-- Core theme JS-->
+    <script src="./public/js/scripts.js"></script>
+  </body>
+</html>
