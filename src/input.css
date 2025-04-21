@@ -1,28 +1,134 @@
+/** @format */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
-  body::before{
-    display: block;
-    content: '';
-    height: 56px;
+@layer components {
+  button,
+  input,
+  textarea {
+    @apply outline-0;
   }
-  button, input, textarea{
-    @apply outline-0
+  #links .active {
+    @apply text-gray-200;
   }
-  #links .active{
-    @apply text-gray-200
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-900;
   }
-  ::-webkit-scrollbar-thumb{
-    @apply bg-slate-900
-  }
-  ::-webkit-scrollbar-thumb{
+  ::-webkit-scrollbar-thumb {
     border-radius: 15px;
     border: 1px solid rgb(75 85 99);
   }
-  ::-webkit-scrollbar{
+  ::-webkit-scrollbar {
     background-color: transparent;
     width: 8px;
   }
+}
+
+@font-face {
+  font-family: "CocomatPro";
+  src: url("/public/fonts/CocomatPro-Black.woff2") format("woff2"),
+    url("/public/fonts/CocomatPro-BlackItalic.woff2") format("woff"),
+    url("/public/fonts/CocomatPro-Bold.woff2") format("woff2"),
+    url("/public/fonts/CocomatPro-BoldItalic.woff2") format("woff"),
+    url("/public/fonts/CocomatPro-ExtraLight.woff2") format("woff2"),
+    url("/public/fonts/CocomatPro-ExtraLightItalic.woff2") format("woff"),
+    url("/public/fonts/CocomatPro-Heavy.woff2") format("woff2"),
+    url("/public/fonts/CocomatPro-HeavyItalic.woff2") format("woff"),
+    url("/public/fonts/CocomatPro-Italic.woff2") format("woff2"),
+    url("/public/fonts/CocomatPro-Light.woff2") format("woff2"),
+    url("/public/fonts/CocomatPro-LightItalic.woff2") format("woff"),
+    url("/public/fonts/CocomatPro-Medium.woff2") format("woff2"),
+    url("/public/fonts/CocomatPro-MediumItalic.woff2") format("woff"),
+    url("/public/fonts/CocomatPro-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.bg-square-pattern {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px; /* Square size */
+}
+/* Glow Effect */
+.glow-effect::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(59, 130, 246, 0.15),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+/* Blob Styling (unchanged) */
+.blob {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(4, 86, 219, 0.5), transparent 70%);
+  border-radius: 50%;
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+/* Light theme */
+.bg-square-pattern-light {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px; /* Square size */
+}
+/* Glow Effect */
+.glow-effect-light::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.15),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+/* Blob Styling (unchanged) */
+.blob-light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.5),
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(50px);
+  pointer-events: none;
 }
