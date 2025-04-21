@@ -1,40 +1,44 @@
 <!-- @format -->
 
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="dark font-cocomat">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bare - TailwindCSS</title>
+    <title>Minetra - a Personal Portfolio Website</title>
+
     <!-- Favicon -->
     <link
       rel="shortcut icon"
       href="./public/img/favicon.png"
       type="image/x-icon" />
+
     <!-- Core theme TailwindCSS -->
     <link rel="stylesheet" href="./public/css/output.css" />
+
     <!-- Core theme CSS -->
     <link rel="stylesheet" href="./public/css/styles.css" />
+
+    <!-- Google Material Icons -->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet" />
   </head>
 
   <body
-    class="bg-square-pattern bg-white from-gray-950 via-blue-950 to-gray-950 relative min-h-screen overflow-hidden dark:bg-black">
+    class="bg-square-pattern bg-white from-gray-950 via-blue-950 to-gray-950 relative min-h-screen overflow-hidden dark:bg-black font-cocomat">
     <!-- Background Effects -->
     <div
       class="absolute inset-0 bg-square-pattern opacity-15 pointer-events-none"></div>
     <div class="glow-effect"></div>
-    <!-- Framer Motion Blob -->
     <div id="blob-container"></div>
 
-    <!-- Header with Glassmorphic Nav -->
+    <!-- Header -->
     <div class="w-full relative z-10">
       <div
-        class="w-full max-w-[1340px] mx-auto px-6 py-4 bg-white/5 backdrop-blur-md shadow-lg rounded-xl border border-white/10 transition-all duration-300 mt-6">
-        <div class="flex items-center justify-between md:mt-4 md:p-4">
+        class="w-full max-w-[1440px] mx-auto px-4 py-2 bg-white/5 backdrop-blur-md shadow-lg rounded-xl border border-white/10 transition-all duration-300 mt-6">
+        <div class="flex items-center justify-between md:p-4">
           <!-- Logo -->
           <div class="flex-shrink-0">
             <img
@@ -43,18 +47,71 @@
               class="h-10 w-auto block" />
           </div>
 
+          <!-- Desktop Navigation -->
+          <nav
+            class="hidden lg:flex items-center gap-6 text-primary-color font-medium font-cocomat relative">
+            <ul class="flex items-center gap-[50px]">
+              <li class="relative group">
+                <a
+                  href="#"
+                  class="hover:text-secondary-color transition backdrop-blur-md hover:bg-gray-100/50 dark:hover:bg-zinc-800/50 px-6 py-3 rounded-md flex items-center gap-2"
+                  >Home
+                  <span class="material-icons text-sm text-current"
+                    >arrow_drop_down</span
+                  >
+                </a>
+                <!-- Submenu -->
+                <ul
+                  class="submenu absolute left-0 mt-2 hidden group-hover:flex flex-col bg-white dark:bg-zinc-900 text-sm shadow-lg rounded-lg py-4 px-6 z-50 min-w-[200px] transition-all duration-200 ease-in-out backdrop-blur-md hover:bg-gray-100/50 dark:hover:bg-zinc-800/50">
+                  <li class="submenu-item">
+                    <a href="#" class="hover:text-secondary-color py-2 block"
+                      >Sub Home 1</a
+                    >
+                  </li>
+                  <li class="submenu-item">
+                    <a href="#" class="hover:text-secondary-color py-2 block"
+                      >Sub Home 2</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-secondary-color transition backdrop-blur-md hover:bg-gray-100/50 dark:hover:bg-zinc-800/50 px-6 py-3 rounded-md font-thin"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-secondary-color transition backdrop-blur-md hover:bg-gray-100/50 dark:hover:bg-zinc-800/50 px-6 py-3 rounded-md"
+                  >Portfolio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-secondary-color transition backdrop-blur-md hover:bg-gray-100/50 dark:hover:bg-zinc-800/50 px-6 py-3 rounded-md"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <button
+                  class="flex items-center gap-2 bg-secondary-color text-[#fff] font-thin rounded-md transition duration-300 hover:bg-secondary-color/80 px-6 py-3">
+                  <span class="material-icons">phone</span>
+                  <p>Hire Me</p>
+                </button>
+              </li>
+            </ul>
+          </nav>
+
           <!-- Mobile Hamburger -->
           <div class="md:hidden">
             <button id="mobile-menu-toggle">
               <span class="material-icons text-3xl text-primary-color"
                 >menu</span
               >
-            </button>
-            <button
-              id="theme-toggle"
-              class="absolute top-4 -right-20 text-white p-2 rounded">
-              <span class="material-icons text-2xl">brightness_2</span>
-              <span class="material-icons text-2xl hidden">wb_sunny</span>
             </button>
           </div>
         </div>
@@ -63,35 +120,46 @@
       <!-- Mobile Menu -->
       <div
         id="mobile-menu"
-        class="hidden md:hidden px-6 pb-4 max-w-[1340px] mx-auto mt-4">
+        class="hidden lg:hidden px-6 pb-4 max-w-[1440px] items-start mx-auto mt-4">
         <nav
-          class="flex flex-col gap-4 bg-white/5 backdrop-blur-md shadow-md rounded-xl p-4 text-primary-color font-medium animate-fadeIn">
+          class="flex flex-col gap-4 bg-white/5 backdrop-blur-md shadow-md rounded-xl p-4 text-primary-color font-medium font-cocomat animate-fadeIn">
           <ul class="flex flex-col gap-4">
-            <li>
-              <a href="#" class="hover:text-secondary-color transition block"
-                >Home</a
-              >
-              <ul class="ml-4 mt-1 space-y-1">
+            <li class="relative group">
+              <a href="#" class="hover:text-secondary-color transition">Home</a>
+              <!-- Submenu -->
+              <ul
+                class="absolute left-0 mt-2 hidden group-hover:flex flex-col bg-white dark:bg-zinc-900 text-sm shadow-lg rounded-lg py-2 px-4 z-50 min-w-[160px] transition-all duration-200 ease-in-out">
                 <li>
-                  <a href="#" class="text-sm hover:text-secondary-color"
+                  <a href="#" class="hover:text-secondary-color py-1"
                     >Sub Home 1</a
                   >
                 </li>
                 <li>
-                  <a href="#" class="text-sm hover:text-secondary-color"
+                  <a href="#" class="hover:text-secondary-color py-1"
                     >Sub Home 2</a
                   >
                 </li>
               </ul>
             </li>
+
             <li>
               <a href="#" class="hover:text-secondary-color transition"
                 >About</a
               >
             </li>
             <li>
+              <a href="#" class="hover:text-secondary-color transition"
+                >Portfolio</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-secondary-color transition"
+                >Contact</a
+              >
+            </li>
+            <li>
               <button
-                class="flex items-start gap-2 bg-secondary-color text-[#fff] font-thin mt-2 rounded-md transition duration-300 hover:bg-secondary-color/80 p-4 py-2 font-cocomat w-full justify-center">
+                class="flex items-start gap-2 bg-secondary-color text-[#fff] font-thin mt-2 rounded-md transition duration-300 hover:bg-secondary-color/80 p-4 py-2 w-full justify-center">
                 <span class="material-icons">phone</span>
                 <p>Hire Me</p>
               </button>
@@ -100,43 +168,10 @@
         </nav>
       </div>
     </div>
-    <!-- Core Navbar JS -->
+
+    <!-- Scripts -->
     <script src="./public/js/navbar.js"></script>
     <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
-    <!-- Framer Motion Blob Animation -->
-
-    <!-- Core theme JS -->
     <script src="./public/js/scripts.js"></script>
-    <script>
-      // Select the theme toggle button and the icons
-      const themeToggle = document.getElementById("theme-toggle");
-      const darkIcon = themeToggle.querySelector("span:first-child");
-      const lightIcon = themeToggle.querySelector("span:last-child");
-
-      // Check for saved user preference in localStorage
-      const currentTheme = localStorage.getItem("theme");
-      if (currentTheme) {
-        document.body.classList.toggle("dark", currentTheme === "dark");
-        darkIcon.classList.toggle("hidden", currentTheme === "light");
-        lightIcon.classList.toggle("hidden", currentTheme === "dark");
-      }
-
-      // Add event listener for the theme toggle button
-      themeToggle.addEventListener("click", () => {
-        // Toggle the 'dark' class on the body
-        document.body.classList.toggle("dark");
-        alert("Theme toggled");
-
-        // Toggle visibility of the icons
-        darkIcon.classList.toggle("hidden");
-        lightIcon.classList.toggle("hidden");
-
-        // Save the current theme in localStorage
-        const theme = document.body.classList.contains("dark")
-          ? "dark"
-          : "light";
-        localStorage.setItem("theme", theme);
-      });
-    </script>
   </body>
 </html>

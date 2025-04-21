@@ -4,14 +4,11 @@ module.exports = {
   content: ["**/*.{html,js}", "**/**/*.{html,js}", "./index.html"],
   darkMode: "class", // Enables class-based dark mode
   theme: {
-    screens: {
-      xs: "361px",
-    },
     extend: {
       colors: {
         // Light mode base colors
         "primary-color": "#F6F4F0", // Fixed invalid hex
-        "secondary-color": "#ff3131",
+        "secondary-color": "#0CC0DF",
         "third-color": "#222222",
 
         // Semantic color tokens for both modes
