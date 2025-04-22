@@ -113,20 +113,20 @@ nav button {
     transform: translateY(0);
   }
 }
-
-/* Submenu Styling */
 /* Submenu Styling */
 .submenu {
   background: rgba(255, 255, 255); /* Glassmorphic background */
   backdrop-filter: blur(10px); /* Glassmorphic blur effect */
   border: 1px solid transparent; /* For gradient border */
-  /* Gradient border */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   border-radius: 12px; /* Rounded corners */
   padding: 16px 24px; /* Increased padding */
   min-width: 200px; /* Wider submenu */
   z-index: 50;
-  display: none; /* Hidden by default */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
 }
 
 /* Dark mode adjustments */
@@ -158,11 +158,102 @@ nav button {
 }
 
 .submenu-item a:hover {
-  color: #f472b6; /* hover:text-secondary-color */
+  color: #0cc0df; /* hover:text-secondary-color */
   transform: translateX(4px); /* Subtle shift on hover */
 }
 
-/* Ensure submenu visibility is controlled by Framer Motion */
+/* Smooth transition for submenu */
+.submenu {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Rotate arrow icon */
+.material-icons.rotate-180 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+/* Hamburger menu animation */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #fff; /* Adjust color as needed */
+  transition: all 0.3s ease;
+}
+
+.hamburger.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Show submenu on group hover */
 .group:hover .submenu {
-  display: flex; /* Fallback for when Framer Motion isn't applied */
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+/* Hide submenu with 1s delay after mouse leaves group */
+.group:not(:hover) .submenu {
+  transition-delay: 1s;
+}
+
+/* hamburger menu */
+
+/* Hamburger Button */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20px;
+  height: 14px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hamburger .bar {
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff; /* Adjust to match your primary-color */
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Ensure mobile menu animation */
+#mobile-menu {
+  transition: all 0.3s ease-in-out;
+}
+
+#mobile-menu.hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+#mobile-menu:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
 }

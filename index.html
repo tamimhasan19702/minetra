@@ -30,15 +30,16 @@
     class="bg-square-pattern bg-white from-gray-950 via-blue-950 to-gray-950 relative min-h-screen overflow-hidden dark:bg-black font-cocomat">
     <!-- Background Effects -->
     <div
-      class="absolute inset-0 bg-square-pattern opacity-15 pointer-events-none"></div>
-    <div class="glow-effect"></div>
+      class="absolute inset-0 bg-square-pattern opacity-15 pointer-events-none"
+      id="square-pattern"></div>
+    <div class="glow-effect" id="glow-effect"></div>
     <div id="blob-container"></div>
 
     <!-- Header -->
-    <div class="w-full relative z-10">
+    <div class="w-full relative z-10 mt-4">
       <div
-        class="w-full max-w-[1440px] mx-auto px-4 py-2 bg-white/5 backdrop-blur-md shadow-lg rounded-xl border border-white/10 transition-all duration-300 mt-6">
-        <div class="flex items-center justify-between md:p-4">
+        class="w-full max-w-[1440px] mx-auto px-4 py-2 bg-white/5 backdrop-blur-md shadow-lg rounded-xl border border-white/10 transition-all duration-300">
+        <div class="flex items-center justify-between md:p-4 md:px-6">
           <!-- Logo -->
           <div class="flex-shrink-0">
             <img
@@ -49,12 +50,12 @@
 
           <!-- Desktop Navigation -->
           <nav
-            class="hidden lg:flex items-center gap-6 text-primary-color font-medium font-cocomat relative">
-            <ul class="flex items-center gap-[50px]">
+            class="hidden lg:flex items-center justify-center flex-grow text-primary-color font-medium font-cocomat relative">
+            <ul class="flex items-center gap-[40px]">
               <li class="relative group">
                 <a
                   href="#"
-                  class="hover:text-secondary-color transition backdrop-blur-md hover:bg-gray-100/50 dark:hover:bg-zinc-800/50 px-6 py-3 rounded-md flex items-center gap-2"
+                  class="hover:text-secondary-color transition backdrop-blur-md hover:bg-gray-100/50 dark:hover:bg-zinc-800/50 px-4 py-2 rounded-md flex items-center gap-2"
                   >Home
                   <span class="material-icons text-sm text-current"
                     >arrow_drop_down</span
@@ -62,7 +63,7 @@
                 </a>
                 <!-- Submenu -->
                 <ul
-                  class="submenu absolute left-0 mt-2 hidden group-hover:flex flex-col bg-white dark:bg-zinc-900 text-sm shadow-lg rounded-lg py-4 px-6 z-50 min-w-[200px] transition-all duration-200 ease-in-out backdrop-blur-md hover:bg-gray-100/50 dark:hover:bg-zinc-800/50">
+                  class="submenu absolute left-0 mt-2 hidden group-hover:flex flex-col bg-white dark:bg-zinc-900 text-sm shadow-lg rounded-lg py-4 px-6 z-50 min-w-[200px] backdrop-blur-md">
                   <li class="submenu-item">
                     <a href="#" class="hover:text-secondary-color py-2 block"
                       >Sub Home 1</a
@@ -78,40 +79,41 @@
               <li>
                 <a
                   href="#"
-                  class="hover:text-secondary-color transition backdrop-blur-md hover:bg-gray-100/50 dark:hover:bg-zinc-800/50 px-6 py-3 rounded-md font-thin"
+                  class="hover:text-secondary-color transition backdrop-blur-md hover:bg-gray-100/50 dark:hover:bg-zinc-800/50 px-4 py-2 rounded-md font-thin"
                   >About</a
                 >
               </li>
               <li>
                 <a
                   href="#"
-                  class="hover:text-secondary-color transition backdrop-blur-md hover:bg-gray-100/50 dark:hover:bg-zinc-800/50 px-6 py-3 rounded-md"
+                  class="hover:text-secondary-color transition backdrop-blur-md hover:bg-gray-100/50 dark:hover:bg-zinc-800/50 px-4 py-2 rounded-md"
                   >Portfolio</a
                 >
               </li>
               <li>
                 <a
                   href="#"
-                  class="hover:text-secondary-color transition backdrop-blur-md hover:bg-gray-100/50 dark:hover:bg-zinc-800/50 px-6 py-3 rounded-md"
+                  class="hover:text-secondary-color transition backdrop-blur-md hover:bg-gray-100/50 dark:hover:bg-zinc-800/50 px-4 py-2 rounded-md"
                   >Contact</a
                 >
-              </li>
-              <li>
-                <button
-                  class="flex items-center gap-2 bg-secondary-color text-[#fff] font-thin rounded-md transition duration-300 hover:bg-secondary-color/80 px-6 py-3">
-                  <span class="material-icons">phone</span>
-                  <p>Hire Me</p>
-                </button>
               </li>
             </ul>
           </nav>
 
+          <!-- Hire Me Button (Desktop) -->
+          <div class="hidden lg:flex items-center">
+            <button
+              class="flex items-center gap-2 bg-secondary-color text-[#fff] font-thin rounded-md transition duration-300 hover:bg-secondary-color/80 px-6 py-3">
+              <span class="material-icons">phone</span>
+              <p>Hire Me</p>
+            </button>
+          </div>
+
           <!-- Mobile Hamburger -->
-          <div class="md:hidden">
-            <button id="mobile-menu-toggle">
-              <span class="material-icons text-3xl text-primary-color"
-                >menu</span
-              >
+          <div class="lg:hidden">
+            <button id="mobile-menu-toggle" class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
             </button>
           </div>
         </div>
@@ -122,26 +124,37 @@
         id="mobile-menu"
         class="hidden lg:hidden px-6 pb-4 max-w-[1440px] items-start mx-auto mt-4">
         <nav
-          class="flex flex-col gap-4 bg-white/5 backdrop-blur-md shadow-md rounded-xl p-4 text-primary-color font-medium font-cocomat animate-fadeIn">
+          class="flex flex-col gap-4 bg-white/5 backdrop-blur-md shadow-md rounded-xl p-4 text-primary-color font-medium font-cocomat">
           <ul class="flex flex-col gap-4">
-            <li class="relative group">
-              <a href="#" class="hover:text-secondary-color transition">Home</a>
+            <li class="relative">
+              <button
+                class="accordion-toggle flex items-center gap-2 hover:text-secondary-color transition w-full text-left"
+                data-target="home-submenu">
+                Home
+                <span class="material-icons text-sm text-current"
+                  >arrow_drop_down</span
+                >
+              </button>
               <!-- Submenu -->
               <ul
-                class="absolute left-0 mt-2 hidden group-hover:flex flex-col bg-white dark:bg-zinc-900 text-sm shadow-lg rounded-lg py-2 px-4 z-50 min-w-[160px] transition-all duration-200 ease-in-out">
+                id="home-submenu"
+                class="submenu flex-col bg-white/5 backdrop-blur-md rounded-md p-4 mt-2 z-50">
                 <li>
-                  <a href="#" class="hover:text-secondary-color py-1"
+                  <a
+                    href="#"
+                    class="text-primary-color hover:text-secondary-color transition py-2 block tareq"
                     >Sub Home 1</a
                   >
                 </li>
                 <li>
-                  <a href="#" class="hover:text-secondary-color py-1"
+                  <a
+                    href="#"
+                    class="text-primary-color hover:text-secondary-color transition py-2 block tareq"
                     >Sub Home 2</a
                   >
                 </li>
               </ul>
             </li>
-
             <li>
               <a href="#" class="hover:text-secondary-color transition"
                 >About</a
@@ -171,7 +184,18 @@
 
     <!-- Scripts -->
     <script src="./public/js/navbar.js"></script>
-    <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
-    <script src="./public/js/scripts.js"></script>
+    <script src="./public/js/background-effects.js"></script>
+    <script src="https://unpkg.com/framer-motion@7.3.2/dist/framer-motion.js"></script>
+
+    <script>
+      // Mobile Accordion
+      const accordionToggle = document.querySelectorAll(".accordion-toggle");
+      accordionToggle.forEach((toggle) => {
+        toggle.addEventListener("click", function () {
+          const target = document.getElementById(toggle.dataset.target);
+          target.classList.toggle("hidden");
+        });
+      });
+    </script>
   </body>
 </html>
